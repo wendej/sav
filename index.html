@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Sistema auxiliar de vendas">
+	<meta name="Wenderson Jr" content="Wenderson Junior">
+	<link rel="shortcut icon" href="image/icone.jpg" type="image/x-icon" />
+	<title>SAV - Sistema Auxiliar de Vendas</title>
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link href="css/scrolling-nav.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">SAV - Sistema Auxiliar de Vendas</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#itemVenda">Cadastrar Item</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#lista">Listar Itens</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#calculadora">Calculadora</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#desconto">Calculadora de Desconto</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header class="bg-primary text-white">
+		<div class="container text-center">
+			<h1>Bem-Vindo ao SAV!</h1>
+			<p class="lead">O SAV é um sistema que irá auxiliar nas suas vendas diárias de forma simples e exata!</p>
+		</div>
+	</header>
+
+	<section id="itemVenda" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 align="center">Cadastra Item</h2>
+					<hr>
+					<p>
+						<form id="cadastrarItem">
+							<div class="form-row">
+								<div class="form-group col-12">
+									<label for="inputDescricao">Descrição do Produto</label>
+									<input type="text" class="form-control" id="descricao" placeholder="Descrição" required="required">
+								</div>
+								<div class="form-group col-6">
+									<label for="inputValorUni">Valor Unitário</label>
+									<input type="text" class="form-control" id="valorUni" placeholder="Valor" onkeyup="somenteNumeros(this);" required="required">
+								</div>
+								<div class="form-group col-6">
+									<label for="inputQuantidade">Quantidade</label>
+									<input type="text" class="form-control" id="quantidade" placeholder="Quantidade" onkeyup="somenteNumeros(this);" required="required">
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Adicionar Produto a Lista</button>
+						</form>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="lista">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 align="center">Lista Itens</h2>
+					<hr>
+					<p>
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Descrição</th>
+										<th scope="col">Uni.</th>
+										<th scope="col">Qtde.</th>
+										<th scope="col">Lote</th>
+									</tr>
+								</thead>
+								<tbody id="tabela">
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3" align="right"><strong>Valor atual da Venda</strong></td>
+										<td id="total">R$ 0</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="calculadora" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 align="center">Calculadora</h2>
+					<hr>
+					<p align="center">
+						<iframe width="219" height="302" src="https://calculator-1.com/outdoor/?f=666666&r=666666" scrolling="no" frameborder="0"></iframe><br />
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="desconto" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 align="center">Calcular Desconto</h2>
+					<hr>
+					<p>
+						<form id="calcularDesconto">
+							<div class="form-row">
+								<div class="form-group col-6">
+									<label for="inputValor">Valor</label>
+									<input type="text" class="form-control" id="valor" placeholder="Valor" onkeyup="somenteNumeros(this);" required="required">
+								</div>
+								<div class="form-group col-6">
+									<label for="inputDesconto">Desconto</label>
+									<input type="text" class="form-control" id="descontoVal" placeholder="Desconto em %" onkeyup="somenteNumeros(this);" required="required">
+								</div>
+								<div class="form-group col-6">
+									<label for="inputValor">Valor Com Desconto</label>
+									<input type="text" class="form-control" id="valorComDesconto" placeholder="Valor com desconto..." disabled="disabled">
+								</div>
+								<div class="form-group col-6">
+									<label for="inputDesconto">Valor do Desconto</label>
+									<input type="text" class="form-control" id="valorDescontado" placeholder="Valor descontado..." disabled="disabled">
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Calculadora de Desconto</button>
+						</form>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Wenderson Junior - 2019</p>
+		</div>
+	</footer>
+
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
